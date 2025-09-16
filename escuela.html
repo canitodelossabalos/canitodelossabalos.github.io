@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I.E. Cañito de los Sábalo - En la Escuela</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Lightbox */
+    #lightbox {
+      display: none;
+    }
+    #lightbox.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+   <!-- Header -->
+  <header class="bg-gradient-to-r from-red-700 to-red-500 text-white shadow-lg sticky top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo + Nombre -->
+      <div class="flex items-center space-x-4">
+        <img src="logo/logo.jpg" alt="Logo Institución" class="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover shadow-md">
+        <h1 class="text-lg md:text-2xl font-bold uppercase leading-tight tracking-wide">
+          Institución Educativa<br>Cañito de los Sábalos
+        </h1>
+      </div>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none transition-transform duration-300 transform hover:scale-110">
+        ☰
+      </button>
+
+      <!-- Menú en pantallas grandes -->
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="hover:text-green-300 transition">Inicio</a>
+        <a href="conocenos.html" class="hover:text-green-300 transition">Conózcanos</a>
+        <a href="documentacion.html" class="hover:text-green-300 transition">Documentación</a>
+        <a href="perfiles.html" class="hover:text-green-300 transition">Comunidad</a>
+        <a href="escuela.html" class="hover:text-green-300 transition">En la Escuela</a>
+        <a href="contacto.html" class="hover:text-green-300 transition">Contáctenos</a>
+      </nav>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-red-600 text-lg font-medium">
+      <a href="index.html" class="block hover:text-green-300 transition">Inicio</a>
+      <a href="conocenos.html" class="block hover:text-green-300 transition">Conózcanos</a>
+      <a href="documentacion.html" class="block hover:text-green-300 transition">Documentación</a>
+      <a href="perfiles.html" class="block hover:text-green-300 transition">Comunidad</a>
+      <a href="escuela.html" class="block hover:text-green-300 transition">En la Escuela</a>
+      <a href="contacto.html" class="block hover:text-green-300 transition">Contáctenos</a>
+    </nav>
+  </header>
+
+  <!-- Contenido -->
+  <main class="p-8 bg-white">
+    <h2 class="text-2xl font-bold text-red-600 mb-6">En la Escuela</h2>
+
+    <!-- Publicación 1 -->
+    <div class="p-4 border rounded-2xl shadow mb-6">
+      <h3 class="text-lg font-semibold mb-1">Día de la Cultura</h3>
+      <p class="text-xs text-gray-500 mb-3">📅 Publicado el 10 de septiembre 2025 - ✍️ Coordinación Académica</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+        <img src="actividades/cultura1.jpg" alt="Cultura 1" class="rounded-2xl cursor-pointer lightbox-img">
+        <img src="actividades/cultura2.jpg" alt="Cultura 2" class="rounded-2xl cursor-pointer lightbox-img">
+        <img src="actividades/cultura3.jpg" alt="Cultura 3" class="rounded-2xl cursor-pointer lightbox-img">
+      </div>
+      <p class="text-gray-700">Celebración del Día de la Cultura con muestras artísticas, bailes y exposiciones realizadas por los estudiantes.</p>
+    </div>
+
+    <!-- Publicación 2 -->
+    <div class="p-4 border rounded-2xl shadow">
+      <h3 class="text-lg font-semibold mb-1">Feria de la Ciencia</h3>
+      <p class="text-xs text-gray-500 mb-3">📅 Publicado el 8 de septiembre 2025 - ✍️ Docentes de Ciencias</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-3">
+        <img src="actividades/ciencia1.jpg" alt="Ciencia 1" class="rounded-2xl cursor-pointer lightbox-img">
+        <img src="actividades/ciencia2.jpg" alt="Ciencia 2" class="rounded-2xl cursor-pointer lightbox-img">
+        <img src="actividades/ciencia3.jpg" alt="Ciencia 3" class="rounded-2xl cursor-pointer lightbox-img">
+      </div>
+      <p class="text-gray-700">Proyecto de investigación y experimentos realizados por los estudiantes de diferentes grados.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-red-600 text-white text-center p-4 mt-8">
+    © 2025 Institución Educativa Cañito de los Sábalos
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+    <button id="close-lightbox" class="absolute top-5 right-8 text-white text-4xl">&times;</button>
+    <button id="prev" class="absolute left-5 text-white text-3xl">&#10094;</button>
+    <img id="lightbox-img" src="" class="max-w-3xl max-h-[80vh] rounded-xl shadow-lg">
+    <button id="next" class="absolute right-5 text-white text-3xl">&#10095;</button>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Menú móvil
+    (function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuBtn = document.getElementById("menu-btn");
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (menuBtn && mobileMenu) {
+          menuBtn.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+      });
+    })();
+
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("close-lightbox");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const images = document.querySelectorAll(".lightbox-img");
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        lightbox.classList.add("active", "flex");
+        lightboxImg.src = img.src;
+        currentIndex = index;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("active", "flex");
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+  </script>
+
+</body>
+</html>

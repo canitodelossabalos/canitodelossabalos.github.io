@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I.E. Cañito de los Sábalos - Documentación</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-red-700 to-red-500 text-white shadow-lg sticky top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo + Nombre -->
+      <div class="flex items-center space-x-4">
+        <img src="logo/logo.jpg" alt="Logo Institución" class="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover shadow-md">
+        <h1 class="text-lg md:text-2xl font-bold uppercase leading-tight tracking-wide">
+          Institución Educativa<br>Cañito de los Sábalos
+        </h1>
+      </div>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none transition-transform duration-300 transform hover:scale-110">
+        ☰
+      </button>
+
+      <!-- Menú en pantallas grandes -->
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="hover:text-green-300 transition">Inicio</a>
+        <a href="conocenos.html" class="hover:text-green-300 transition">Conózcanos</a>
+        <a href="documentacion.html" class="hover:text-green-300 transition">Documentación</a>
+        <a href="Perfiles.html" class="hover:text-green-300 transition">Comunidad</a>
+        <a href="escuela.html" class="hover:text-green-300 transition">En la Escuela</a>
+        <a href="contacto.html" class="hover:text-green-300 transition">Contáctenos</a>
+      </nav>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-red-600 text-lg font-medium">
+      <a href="index.html" class="block hover:text-green-300 transition">Inicio</a>
+      <a href="conocenos.html" class="block hover:text-green-300 transition">Conózcanos</a>
+      <a href="documentacion.html" class="block hover:text-green-300 transition">Documentación</a>
+      <a href="perfiles.html" class="block hover:text-green-300 transition">Comunidad</a>
+      <a href="escuela.html" class="block hover:text-green-300 transition">En la Escuela</a>
+      <a href="contacto.html" class="block hover:text-green-300 transition">Contáctenos</a>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="p-8 bg-white text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-red-600 mb-6">Documentación Institucional</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 mb-8">
+      Aquí puedes consultar y descargar los documentos oficiales que rigen nuestra institución educativa.
+    </p>
+
+    <!-- Lista de documentos -->
+    <div class="max-w-2xl mx-auto grid grid-cols-1 gap-4">
+      <a href="docs/manual-convivencia.pdf" download
+         class="flex items-center justify-between bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-xl transition group">
+        <span class="text-gray-800 font-medium group-hover:text-red-600">📘 Manual de Convivencia</span>
+        <span class="text-blue-600 font-semibold group-hover:underline">Descargar</span>
+      </a>
+
+      <a href="docs/pei.pdf" download
+         class="flex items-center justify-between bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-xl transition group">
+        <span class="text-gray-800 font-medium group-hover:text-red-600">📗 Proyecto Educativo Institucional (PEI)</span>
+        <span class="text-blue-600 font-semibold group-hover:underline">Descargar</span>
+      </a>
+
+      <a href="docs/sistema-evaluacion.pdf" download
+         class="flex items-center justify-between bg-gray-50 p-4 rounded-xl shadow-md hover:shadow-xl transition group">
+        <span class="text-gray-800 font-medium group-hover:text-red-600">📙 Sistema de Evaluación</span>
+        <span class="text-blue-600 font-semibold group-hover:underline">Descargar</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-red-700 to-red-500 text-white text-center p-6 mt-8 shadow-inner">
+    <p class="text-sm md:text-base">© 2025 Institución Educativa Cañito de los Sábalos - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script menú móvil -->
+  <script>
+  (function () {
+    document.addEventListener("DOMContentLoaded", function () {
+      var menuBtn = document.getElementById("menu-btn");
+      var mobileMenu = document.getElementById("mobile-menu");
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "✕";
+        });
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>
