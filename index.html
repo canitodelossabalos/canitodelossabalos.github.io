@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I.E. Cañito de los Sábalos - Inicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-red-700 to-red-500 text-white shadow-lg sticky top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-4">
+      <!-- Logo + Nombre -->
+      <div class="flex items-center space-x-4">
+        <img src="logo/logo.jpg" alt="Logo Institución" class="w-14 h-14 md:w-20 md:h-20 rounded-full object-cover shadow-md">
+        <h1 class="text-lg md:text-2xl font-bold uppercase leading-tight tracking-wide">
+          Institución Educativa<br>Cañito de los Sábalos
+        </h1>
+      </div>
+
+      <!-- Botón hamburguesa (solo móvil) -->
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none transition-transform duration-300 transform hover:scale-110">
+        ☰
+      </button>
+
+      <!-- Menú en pantallas grandes -->
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html" class="hover:text-green-300 transition">Inicio</a>
+        <a href="conocenos.html" class="hover:text-green-300 transition">Conózcanos</a>
+        <a href="documentacion.html" class="hover:text-green-300 transition">Documentación</a>
+        <a href="perfiles.html" class="hover:text-green-300 transition">Comunidad</a>
+        <a href="escuela.html" class="hover:text-green-300 transition">En la Escuela</a>
+        <a href="contacto.html" class="hover:text-green-300 transition">Contáctenos</a>
+      </nav>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <nav id="mobile-menu" class="hidden flex-col space-y-2 px-6 pb-4 md:hidden bg-red-600 text-lg font-medium">
+      <a href="index.html" class="block hover:text-green-300 transition">Inicio</a>
+      <a href="conocenos.html" class="block hover:text-green-300 transition">Conózcanos</a>
+      <a href="documentacion.html" class="block hover:text-green-300 transition">Documentación</a>
+      <a href="perfiles.html" class="block hover:text-green-300 transition">Comunidad</a>
+      <a href="escuela.html" class="block hover:text-green-300 transition">En la Escuela</a>
+      <a href="contacto.html" class="block hover:text-green-300 transition">Contáctenos</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section con Carrusel Automático -->
+  <section class="relative h-[60vh] overflow-hidden">
+    <!-- Slides -->
+    <div id="carousel" class="w-full h-full relative">
+      <div class="absolute inset-0 transition-opacity duration-1000 opacity-100">
+        <img src="galeria/sabaloscumbiamberos.jpg" class="w-full h-full object-cover" alt="Sabalos Cumbiamberos">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Sabalos Cumbiamberos</h2>
+          <p class="text-lg md:text-xl">La cultura que nos representa</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+        <img src="galeria/img3.jpg" class="w-full h-full object-cover" alt="Rendición de cuentas">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Rendición de cuentas</h2>
+          <p class="text-lg md:text-xl">Compromiso y transparencia institucional</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 transition-opacity duration-1000 opacity-0">
+        <img src="galeria/img2.jpg" class="w-full h-full object-cover" alt="Prom 2025">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-6">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4">Prom 2025</h2>
+          <p class="text-lg md:text-xl">Nuestro futuro comienza aquí</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 rounded-full px-3 py-1 hover:bg-opacity-80">&lt;</button>
+    <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 rounded-full px-3 py-1 hover:bg-opacity-80">&gt;</button>
+
+    <!-- Indicadores -->
+    <div id="indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+  </section>
+
+  <!-- Contenido principal -->
+  <main class="p-8 bg-white text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-red-600 mb-6">Conoce Nuestra Institución</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 mb-8">
+      La Institución Educativa Cañito de los Sábalo les da la bienvenida a su portal oficial, 
+      donde podrán conocer más sobre nuestra historia, nuestros valores y todas las actividades que realizamos.
+    </p>
+
+    <!-- Galería -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="openLightbox(0)">
+        <img src="galeria/sabaloscumbiamberos.jpg" alt="Sabalos Cumbiamberos" 
+             class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+          <p class="text-white text-lg font-semibold">Sabalos Cumbiamberos</p>
+        </div>
+      </div>
+      
+      <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="openLightbox(1)">
+        <img src="galeria/img3.jpg" alt="Rendición de cuentas" 
+             class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+          <p class="text-white text-lg font-semibold">Rendición de cuentas</p>
+        </div>
+      </div>
+  
+      <div class="relative group overflow-hidden rounded-2xl shadow-lg cursor-pointer" onclick="openLightbox(2)">
+        <img src="galeria/img2.jpg" alt="Prom 2025" 
+             class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+          <p class="text-white text-lg font-semibold">Prom 2025</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+    <div class="relative max-w-5xl w-full px-4 flex flex-col items-center">
+      <!-- Botón cerrar -->
+      <span class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer select-none hover:scale-125 transition" onclick="closeLightbox()">&times;</span>
+      
+      <!-- Imagen -->
+      <img id="lightbox-img" src="" alt="Imagen ampliada" class="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl">
+      
+      <!-- Texto -->
+      <p id="lightbox-caption" class="text-center text-white mt-4 text-lg"></p>
+      
+      <!-- Controles -->
+      <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-bold px-3 py-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-80 transition">&lt;</button>
+      <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl font-bold px-3 py-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-80 transition">&gt;</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-red-700 to-red-500 text-white text-center p-6 mt-8 shadow-inner">
+    <p class="text-sm md:text-base">© 2025 Institución Educativa Cañito de los Sábalo - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script Unificado -->
+  <script>
+  // Carrusel automático del Hero
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll("#carousel > div");
+    const prevBtn = document.getElementById("prevSlide");
+    const nextBtn = document.getElementById("nextSlide");
+    const indicators = document.getElementById("indicators");
+
+    let currentIndex = 0;
+    let interval;
+
+    // Crear indicadores
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.className = "w-3 h-3 rounded-full bg-white opacity-50 cursor-pointer transition";
+      dot.addEventListener("click", () => showSlide(i));
+      indicators.appendChild(dot);
+    });
+
+    const dots = indicators.querySelectorAll("span");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("opacity-100", i === index);
+        slide.classList.toggle("opacity-0", i !== index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("opacity-100", i === index);
+        dot.classList.toggle("opacity-50", i !== index);
+      });
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentIndex + 1) % slides.length);
+    }
+
+    function prevSlide() {
+      showSlide((currentIndex - 1 + slides.length) % slides.length);
+    }
+
+    function startAutoSlide() {
+      interval = setInterval(nextSlide, 7000); // cambia cada 5s
+    }
+
+    function stopAutoSlide() {
+      clearInterval(interval);
+    }
+
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      stopAutoSlide();
+      startAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      stopAutoSlide();
+      startAutoSlide();
+    });
+
+    // Iniciar carrusel
+    showSlide(0);
+    startAutoSlide();
+  });
+
+  // Lightbox de la galería
+  (function () {
+    var state = {
+      gallery: [
+        { src: "galeria/sabaloscumbiamberos.jpg", caption: "Sabalos cumbiamberos" },
+        { src: "galeria/img3.jpg", caption: "Rendición de cuentas" },
+        { src: "galeria/img2.jpg", caption: "Prom 2025" }
+      ],
+      index: 0,
+      els: {}
+    };
+
+    function renderLightbox() {
+      if (!state.els.img) return;
+      state.els.img.src = state.gallery[state.index].src;
+      state.els.caption.textContent = state.gallery[state.index].caption;
+    }
+
+    window.openLightbox = function (idx) {
+      state.index = Number(idx) || 0;
+      renderLightbox();
+      state.els.lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // bloquear scroll
+    };
+
+    window.closeLightbox = function () {
+      state.els.lightbox.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    };
+
+    window.nextImage = function () {
+      state.index = (state.index + 1) % state.gallery.length;
+      renderLightbox();
+    };
+
+    window.prevImage = function () {
+      state.index = (state.index - 1 + state.gallery.length) % state.gallery.length;
+      renderLightbox();
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      state.els.lightbox = document.getElementById("lightbox");
+      state.els.img = document.getElementById("lightbox-img");
+      state.els.caption = document.getElementById("lightbox-caption");
+
+      if (state.els.lightbox) {
+        state.els.lightbox.addEventListener("click", function (e) {
+          if (e.target === state.els.lightbox) window.closeLightbox();
+        });
+      }
+
+      var menuBtn = document.getElementById("menu-btn");
+      var mobileMenu = document.getElementById("mobile-menu");
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          menuBtn.textContent = mobileMenu.classList.contains("hidden") ? "☰" : "✕";
+        });
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") window.closeLightbox();
+      if (e.key === "ArrowRight") window.nextImage();
+      if (e.key === "ArrowLeft") window.prevImage();
+    });
+  })();
+  </script>
+
+</body>
+</html>
